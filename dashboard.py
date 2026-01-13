@@ -104,3 +104,6 @@ if current_rsi < rsi_buy and price_change_24h > price_change_filter and trade_am
 elif (current_rsi > rsi_sell or price_change_24h > price_pump_sell) and st.session_state.sol_balance > 0:
     usdc_received = st.session_state.sol_balance * current_price
     profit = us
+if __name__ == "__main__":
+    import os
+    st.run("--server.port", os.environ.get("PORT", 8501), "--server.address", "0.0.0.0", "--server.headless", "true")
